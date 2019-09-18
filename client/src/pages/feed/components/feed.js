@@ -1,33 +1,39 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 // import axios from 'axios'
 
 import configs from '../../../config'
 
 import map from 'lodash/map'
-// import get from 'lodash/get'
+import get from 'lodash/get'
+// import debounce from 'lodash/debounce'
 
 import Post from './post'
+
+import './feed.scss'
 
 const apiAddress = configs.find(config => (config.id === 'api'))
 
 class PostFeed extends React.Component {
+  static propTypes = {
+    user: PropTypes.object
+  }
+  static defaultProps = {
+    user: {
+      username: null,
+      isAdmin: false
+    }
+  }
   state = {
     feed: []
   }
 
+  // window.onscroll = debounce(() => {
+
+  // })
+
   componentDidMount() {
     this.getFeed()
-    // if (!this.state.intervalIsSet) {
-    //   let interval = setInterval(this.getFeed, 1000);
-    //   this.setState({ intervalIsSet: interval });
-    // }
-  }
-
-  componentWillUnmount() {
-    // if (this.state.intervalIsSet) {
-    //   clearInterval(this.state.intervalIsSet);
-    //   this.setState({ intervalIsSet: null });
-    // }
   }
 
   getFeed = () => {
@@ -41,12 +47,13 @@ class PostFeed extends React.Component {
 
   render() {
     const { feed } = this.state
-    console.log('feed', feed)
+    // Add scrollstate here and cap feed based on scrollstate
     return (
       <div>
         {map(feed, (post) => {
+          const id = get(post, '_id')
           return(
-            <Post data={post}/>
+            <Post key={id} data={post}/>
           )
         })}
       </div>
