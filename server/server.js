@@ -31,7 +31,6 @@ db.once('open', () => {
     }
   })
 })
-
 db.on('error', console.error.bind(console, 'connection error:'))
 
 app.use(bodyParser.urlencoded({ extended: false }))
