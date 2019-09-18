@@ -38,7 +38,8 @@ app.use(bodyParser.json())
 app.use(logger('dev'))
 
 router.get('/getPost', (req, res) => {
-  models.Post.find((err, data) => {
+  const { filter } = req.body
+  models.Post.find(filter, (err, data) => {
     if (err) return res.json({ success: false, error: err })
     return res.json({ success: true, data: data })
   })
