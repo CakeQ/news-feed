@@ -44,8 +44,6 @@ router.get('/getPost', (req, res) => {
   })
 })
 
-// this is our update method
-// this method overwrites existing data in our database
 router.post('/updatePost', (req, res) => {
   const { id, update } = req.body
   models.Post.findByIdAndUpdate(id, update, (err) => {
@@ -54,8 +52,6 @@ router.post('/updatePost', (req, res) => {
   })
 })
 
-// this is our delete method
-// this method removes existing data in our database
 router.delete('/deletePost', (req, res) => {
   const { id } = req.body
   models.Post.findByIdAndRemove(id, (err) => {
@@ -64,8 +60,6 @@ router.delete('/deletePost', (req, res) => {
   })
 })
 
-// this is our create methid
-// this method adds new data in our database
 router.post('/createPost', (req, res) => {
   let post = new models.Post()
 
