@@ -1,0 +1,26 @@
+{
+  "name": "news-feed",
+  "version": "1.0.0",
+  "description": "A simple news feed React app with a backend server",
+  "main": "index.js",
+  "dependencies": {
+    "babel-register": "^6.26.0",
+    "concurrently": "^4.1.2",
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "cd client && npm test",
+    "start": "concurrently \"cd server && node server.js\" \"cd client && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CakeQ/news-feed.git"
+  },
+  "author": "Daniel Thompson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CakeQ/news-feed/issues"
+  },
+  "homepage": "https://github.com/CakeQ/news-feed#readme"
+}
