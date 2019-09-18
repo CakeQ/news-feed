@@ -33,10 +33,10 @@ class Post extends React.Component {
         <i>By {postAuthor}</i>
         <div>{new Date(postDate).toLocaleDateString()}</div>
         <div>{textContent}</div>
-        {postTags.length ? 'Tags:': ''}
+        {postTags.length ? <b>Tags:</b> : ''}
         <i>{map(postTags, (tag) => {
           return (
-            <a>{tag}</a>
+            <a> {tag}</a>
           )
         })}</i>
       </div>
