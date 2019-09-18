@@ -28,8 +28,13 @@ li {
   position: fixed;
 }
 
+.input {
+  margin: .5em .1em;
+  border-radius: 2px;
+}
+
 .button {
   cursor: pointer;
-  margin: 0 .5em;
+  margin: .5em;
   border-radius: 2px;
 }

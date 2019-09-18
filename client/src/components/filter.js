@@ -28,7 +28,7 @@ class Filter extends React.Component {
     return (
       <li>
         <form onSubmit={this.handleSubmit} method='POST'>
-          <input type='string' name='filter' ref='filter' defaultValue={currentFilter} />
+          <input className='input' type='string' name='filter' ref='filter' defaultValue={currentFilter} />
           <button className='button' type='submit' name='Log In'>Search</button>
         </form>
       </li>

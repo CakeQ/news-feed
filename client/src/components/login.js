@@ -45,8 +45,8 @@ class Login extends React.Component {
     else return (
       <li>
         <form onSubmit={this.handleLogIn} method='POST'>
-          <input type='email' name='username' ref='username' />
-          <input type='password' name='password' ref='password' />
+          <input className='input' type='email' name='username' ref='username' />
+          <input className='input' type='password' name='password' ref='password' />
           <button className='button' type='submit' name='Log In'>Log In</button>
         </form>
       </li>
