@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import sanitize from 'mongo-sanitize'
 
 import get from 'lodash/get'
-
-import './post.scss'
 
 class Login extends React.Component {
   static propTypes = {
@@ -29,7 +28,7 @@ class Login extends React.Component {
     const username = get(this.refs, 'username.value', null)
     const password = get(this.refs, 'password.value', '')
     if(!this.validateEmail(username)) return
-    logIn(username, password)
+    logIn(sanitize(username), sanitize(password))
   }
 
   render() {

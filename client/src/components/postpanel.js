@@ -9,9 +9,7 @@ class PostPanel extends React.Component {
   static propTypes = {
     user: PropTypes.object,
     postAuthor: PropTypes.string,
-    featured: PropTypes.bool,
-    deletePost: PropTypes.func.isRequired,
-    featurePost: PropTypes.func.isRequired
+    featured: PropTypes.bool
   }
   static defaultProps = {
     user: {
@@ -25,13 +23,13 @@ class PostPanel extends React.Component {
   handleDelete = (event) => {
     if(event) event.preventDefault()
     const { deletePost } = this.props
-    deletePost(this.props)
+    deletePost()
   }
 
   handleFeature = (event) => {
     if(event) event.preventDefault()
     const { featurePost } = this.props
-    featurePost(this.props)
+    featurePost()
   }
 
   render() {

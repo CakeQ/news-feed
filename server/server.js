@@ -25,7 +25,31 @@ db.once('open', () => {
     if (!data) {
       console.log('No posts found... Creating example posts.')
       for(const templateImage of templateImages.value) {
-        const newPost = new models.Post({ title: casual.title, imageLink: templateImage, textContent: casual.sentences(20), tags: ['example', 'default'], createdBy: 'd.kqgqn@gmail.com' })
+        const newPost = new models.Post({
+          title: casual.title,
+          imageLink: templateImage,
+          textContent: casual.sentences(20),
+          tags: ['example', 'default'],
+          createdBy: 'Dan@gmail.com',
+          createdDate: new Date(),
+          comments: [
+            {
+              createdBy: 'Anonymous',
+              createdDate: new Date(),
+              textContent: casual.sentences(3)
+            },
+            {
+              createdBy: 'Anonymous',
+              createdDate: new Date(),
+              textContent: casual.sentences(3)
+            },
+            {
+              createdBy: 'Bob@gmail.com',
+              createdDate: new Date(),
+              textContent: casual.sentences(3)
+            }
+          ]
+        })
         newPost.save()
       }
     }
@@ -46,7 +70,8 @@ router.get('/getPost', (req, res) => {
 })
 
 router.post('/updatePost', (req, res) => {
-  const { id, update } = req.body
+  const { post, update } = req.body
+  const id = post._id
   models.Post.findByIdAndUpdate(id, update, (err) => {
     if (err) return res.json({ success: false, error: err })
     return res.json({ success: true })
@@ -54,7 +79,8 @@ router.post('/updatePost', (req, res) => {
 })
 
 router.delete('/deletePost', (req, res) => {
-  const { id } = req.body
+  const { post } = req.body
+  const id = post._id
   models.Post.findByIdAndRemove(id, (err) => {
     if (err) return res.send(err)
     return res.json({ success: true })
@@ -62,19 +88,16 @@ router.delete('/deletePost', (req, res) => {
 })
 
 router.post('/createPost', (req, res) => {
-  let post = new models.Post()
+  let newPost = new models.Post()
 
-  const { id, message } = req.body
+  const { post } = req.body
 
-  if ((!id && id !== 0) || !message) {
-    return res.json({
-      success: false,
-      error: 'INVALID INPUTS',
-    })
-  }
-  post.message = message
-  post.id = id
-  post.save((err) => {
+  newPost.title = post.title
+  newPost.imageLink = post.imageLink
+  newPost.createdBy = post.createdBy
+  newPost.textContent = post.textContent
+  newPost.tags = post.tags
+  newPost.save((err) => {
     if (err) return res.json({ success: false, error: err })
     return res.json({ success: true })
   })

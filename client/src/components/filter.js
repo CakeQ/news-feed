@@ -19,7 +19,6 @@ class Filter extends React.Component {
     if(event) event.preventDefault()
     const { submitFilter } = this.props
     const filter = sanitize(get(this.refs, 'filter.value', ''))
-    console.log(filter)
     submitFilter(filter)
   }
 
