@@ -31,7 +31,7 @@ class Editor extends React.Component {
     const imageLink = get(this.refs, 'image.value', null)
     const body = get(this.refs, 'body.value', null)
     const tags = get(this.refs, 'tags.value', '')
-    if(!title || !body) return
+    if(!title || !body || !imageLink) return
     createPost(sanitize(title), sanitize(imageLink), sanitize(body), sanitize(tags))
     closeEditor()
   }
@@ -52,7 +52,7 @@ class Editor extends React.Component {
           <center>
             <div>Title</div>
             <input className='input-post' type='text' name='title' ref='title' />
-            <div>Image Link (optional)</div>
+            <div>Image Link</div>
             <input className='input-post' type='url' name='image' ref='image' />
             <div>Body</div>
             <textarea className='input-post-body' type='text' name='body' ref='body' />
