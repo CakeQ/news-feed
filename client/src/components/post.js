@@ -77,9 +77,8 @@ class Post extends React.Component {
         <div>{textContent}</div>
         {postTags.length ? <b>Tags:</b> : ''}
         {map(postTags, (tag) => {
-          const searchUrl = `search=${tag}`
           return (
-            <i key={postTitle + tag}> <a href={searchUrl}>{tag}</a></i>
+            <i key={postTitle + tag}> {tag}</i>
           )
         })}
         <Comments user={user} comments={comments} createComment={createComment} deleteComment={deleteComment} />

@@ -183,11 +183,11 @@ class App extends React.Component {
   }
 
   render() {
-    const { feed, user, filter, featured, deletePost, featurePost, createComment, deleteComment } = this.state
+    const { feed, user, filter, featured, deletePost, featurePost, submitFilter, createComment, deleteComment } = this.state
     return (
       <center>
         <h1>News Feed</h1>
-        <Feed feed={feed} user={user} filter={filter} featured={featured} deletePost={deletePost} createComment={createComment} deleteComment={deleteComment} featurePost={featurePost} />
+        <Feed feed={feed} user={user} filter={filter} featured={featured} deletePost={deletePost} filterPost={submitFilter} createComment={createComment} deleteComment={deleteComment} featurePost={featurePost} />
       </center>
     )
   }
