@@ -1,4 +1,6 @@
-Client project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## News-Feed
+
+A standalone news feed page packaged with its own mongoose back-end. Requires a MongoDB database running on port 27017 by default (see server/config.js for changing) to run. Client project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Setup
 
