@@ -6,7 +6,7 @@
   "dependencies": {
     "babel-register": "^6.26.0",
     "concurrently": "^4.1.2",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.19"
   },
   "devDependencies": {},
   "scripts": {
